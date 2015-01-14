@@ -48,3 +48,22 @@ def fibonacci_iter(n):
         fn1, fn = fn, fn1 + fn
 
     return fn
+
+def divisors(n):
+    dv = []
+    d = n
+    while d > 1:
+        if n % d == 0:
+            dv.append(d)
+        d -= 1
+
+    return dv
+
+def gcd(*nums):
+    all_divisors = [set(divisors(n)) for n in nums]
+    common_divisors = reduce(lambda a, b: a.intersection(b), all_divisors)
+
+    if common_divisors:
+      return max(common_divisors)
+    else:
+      return None

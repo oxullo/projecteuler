@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import utils
+import calc
 
 nprod = 1
 dprod = 1
@@ -16,7 +17,6 @@ for n in xrange(11, 50):
 		common = nd.intersection(dd)
 
 		if common:
-			#print nd, dd, nd - common, dd - common
 			q = float(n) / d
 			nsing = list(nd-common)[0]
 			dsing = list(dd-common)[0]
@@ -28,4 +28,4 @@ for n in xrange(11, 50):
 					nprod *= nsing
 					dprod *= dsing
 
-print nprod, dprod
+print dprod / calc.gcd(nprod, dprod)
