@@ -21,9 +21,8 @@ class Vec2D(object):
 # http://stackoverflow.com/questions/1801391/what-is-the-best-algorithm-for-checking-if-a-number-is-prime
 def isprime(n):
    """Returns True if n is prime"""
-   if n < 0: return False
-   if n == 2: return True
-   if n == 3: return True
+   if n <= 1: return False
+   if n in (2, 3): return True
    if n % 2 == 0: return False
    if n % 3 == 0: return False
 
