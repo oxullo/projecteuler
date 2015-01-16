@@ -40,18 +40,18 @@ def count_circular(numbers):
 
 if __name__ == '__main__':
 	try:
-		primes_digits = utils.restore('primes-1M.json')
+		primes = utils.restore('primes-1M.json')
 		print 'Primes loaded from cache'
 	except:
 		print 'Calculating primes'
-		primes_digits = [p for p in xrange(1, int(10E6)) if calc.isprime(p)]
-		utils.save('primes-1M.json', primes_digits)
+		primes = [p for p in xrange(1, int(10E6)) if calc.isprime(p)]
+		utils.save('primes-1M.json', primes)
 		print 'done'
 
-	totals = len([n for n in primes_digits if n < 10 and n > 1])
+	totals = len([n for n in primes if n < 10 and n > 1])
 	for i in xrange(2, 7):
 		print 'Processing %d-length digits' % i
-		series = [utils.num_to_digits(n) for n in primes_digits if n >= 10**(i-1) and n < 10**i]
+		series = [utils.num_to_digits(n) for n in primes if n >= 10**(i-1) and n < 10**i]
 		totals += count_circular(series)
 
 	print totals
