@@ -14,3 +14,9 @@ def save(fname, data):
 
 def restore(fname):
 	return json.load(open(fname))
+
+def ispalindromic(n):
+    sp = [a for a in str(n)]
+    sprev = sp[:]
+    sprev.reverse()
+    return sp == sprev
