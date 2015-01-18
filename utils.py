@@ -33,3 +33,6 @@ def get_primes():
 		print 'done'
 
 	return primes
+
+def ispandigital(ns):
+	return list(xrange(1, 10)) == sorted([int(digit) for digit in ns])
