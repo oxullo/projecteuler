@@ -28,7 +28,7 @@ def get_primes():
 		print 'Primes loaded from cache'
 	except:
 		print 'Calculating primes'
-		primes = [p for p in xrange(1, int(10E6)) if calc.isprime(p)]
+		primes = [p for p in xrange(1, int(1E6)) if calc.isprime(p)]
 		save('primes-1M.json', primes)
 		print 'done'
 
