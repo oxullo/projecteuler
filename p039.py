@@ -16,7 +16,6 @@ def test(p):
 
 if __name__ == '__main__':
 	all_solutions = []
-	t = time.time()
 	for i in xrange(3, 1001):
 		solutions = test(i)
 		if solutions:
