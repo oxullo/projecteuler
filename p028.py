@@ -15,27 +15,27 @@
 #
 
 def f(n):
-	if n == 0:
-		return 1
-	else:
-		return f(n-1) + 2 * ((n-1)/4+1)
+    if n == 0:
+        return 1
+    else:
+        return f(n-1) + 2 * ((n-1)/4+1)
 
 def f_iter(n):
-	csum = 1
-	for i in xrange(n+1):
-		csum += 2 * ((i-1)/4+1)
+    csum = 1
+    for i in xrange(n+1):
+        csum += 2 * ((i-1)/4+1)
 
-	return csum
+    return csum
 
 def ringsum(n):
-	if n == 0:
-		return f(0)
-	else:
-		return sum([f_iter(i) for i in xrange(4*(n-1) + 1, 4*n + 1)])
+    if n == 0:
+        return f(0)
+    else:
+        return sum([f_iter(i) for i in xrange(4*(n-1) + 1, 4*n + 1)])
 
 def spiralsum(size):
-	return sum([ringsum(i) for i in xrange(size / 2 + 1)])
+    return sum([ringsum(i) for i in xrange(size / 2 + 1)])
 
 if __name__ == '__main__':
-	print spiralsum(5)
-	print spiralsum(1001)
+    print spiralsum(5)
+    print spiralsum(1001)
