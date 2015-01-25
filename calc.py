@@ -50,13 +50,26 @@ def fibonacci_iter(n):
 
 def divisors(n):
     dv = []
-    d = n
+    d = n - 1
     while d > 1:
         if n % d == 0:
             dv.append(d)
         d -= 1
 
     return dv
+
+# http://stackoverflow.com/questions/16996217/prime-factorization-list
+def prime_factors(n):
+    pf = []
+    d = 2
+    while d*d <= n:
+        while n % d == 0:
+            pf.append(d)
+            n /= d
+        d += 1
+    if n > 1:
+        pf.append(n)
+    return pf
 
 def gcd(*nums):
     all_divisors = [set(divisors(n)) for n in nums]
